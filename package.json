@@ -34,24 +34,24 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.7.7",
+    "@babel/runtime": "^7.15.4",
     "@tarojs/runtime": "3.3.11",
     "@tarojs/taro": "3.3.11",
     "@tarojs/components": "3.3.11",
-    "vuex": "^4.0.0-beta.4",
-    "vue": "^3.0.0"
+    "vuex": "^4.0.2",
+    "vue": "^3.2.20"
   },
   "devDependencies": {
-    "@types/webpack-env": "^1.13.6",
+    "@types/webpack-env": "^1.16.3",
     "@tarojs/mini-runner": "3.3.11",
     "@tarojs/webpack-runner": "3.3.11",
-    "@babel/core": "^7.8.0",
+    "@babel/core": "^7.15.8",
     "babel-preset-taro": "3.3.11",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/compiler-sfc": "^3.2.20",
     "vue-loader": "^16.0.0-beta.8",
-    "eslint-plugin-vue": "^7.0.0",
+    "eslint-plugin-vue": "^7.20.0",
     "eslint-config-taro": "3.3.11",
-    "eslint": "^6.8.0",
-    "stylelint": "9.3.0"
+    "eslint": "^7.32.0",
+    "stylelint": "14.0.1"
   }
 }
