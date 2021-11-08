@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { $ } from '@tarojs/extend'
 import NumberDisplay from '../../components/NumberDisplay.vue'
 import NumberSubmit from '../../components/NumberSubmit.vue'
 
@@ -14,6 +15,11 @@ export default {
   components: {
     NumberDisplay,
     NumberSubmit
+  },
+  methods: {
+    initData() {
+      console.log($('view'));
+    }
   }
 }
 </script>
