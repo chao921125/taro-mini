@@ -1,5 +1,5 @@
 const config = {
-  projectName: 'taro-vue',
+  projectName: 'taro-vue3',
   date: '2022-4-11',
   designWidth: 750,
   deviceRatio: {
@@ -9,7 +9,7 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: [],
+  plugins: ['taro-plugin-pinia'],
   defineConstants: {
   },
   copy: {
@@ -18,7 +18,7 @@ const config = {
     options: {
     }
   },
-  framework: 'vue',
+  framework: 'vue3',
   mini: {
     postcss: {
       pxtransform: {
@@ -45,8 +45,6 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
-    // 经过这一配置之后，代码中引入的处于 `node_modules/taro-ui/` 路径下的样式文件均会经过 postcss 的编译处理。
-    esnextModules: ['nutui-taro'],
     postcss: {
       autoprefixer: {
         enable: true,

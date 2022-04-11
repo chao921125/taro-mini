@@ -1,13 +1,14 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+
 import './app.scss'
 
-const App = {
-  onShow (options) {
+const App = createApp({
+  onShow(options) {
   },
-  render(h) {
-    // this.$slots.default 是将要会渲染的页面
-    return h('block', this.$slots.default)
-  }
-}
+  // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
+})
+
+App.use(createPinia())
 
 export default App

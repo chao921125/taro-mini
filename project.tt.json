@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "taro-vue",
+  "projectname": "taro-vue3",
   "description": "mini app",
   "appid": "touristappid",
   "setting": {
