@@ -1,14 +1,18 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { Component } from "react";
+import "./app.scss";
+class App extends Component {
+  componentDidMount() {}
 
-import './app.scss'
+  componentDidShow() {}
 
-const App = createApp({
-  onShow(options) {
-  },
-  // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
-})
+  componentDidHide() {}
 
-App.use(createPinia())
+  componentDidCatchError() {}
 
-export default App
+  // this.props.children 是将要会渲染的页面
+  render() {
+    return this.props.children;
+  }
+}
+
+export default App;
