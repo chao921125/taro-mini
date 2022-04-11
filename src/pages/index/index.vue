@@ -1,36 +1,46 @@
 <template>
   <view class="index">
-    <NumberDisplay/>
-    <NumberSubmit/>
+    <view class="index">
+    <AtNoticebar marquee>
+      欢迎使用 Taro UI Vue
+    </AtNoticebar>
+    <AtButton
+      type="primary"
+      :on-click="handleClick"
+    >
+      AtButton
+    </AtButton>
+    <AtToast :is-opened="show" :text="msg" :on-close="handleClose"></AtToast>
+  </view>
   </view>
 </template>
 
 <script>
-import { $ } from '@tarojs/extend'
-import NumberDisplay from '../../components/NumberDisplay.vue'
-import NumberSubmit from '../../components/NumberSubmit.vue'
-
+// 按需引入, 更小的应用体积
+import { AtButton, AtToast, AtNoticebar } from 'taro-ui-vue'
+import "taro-ui-vue/dist/style/components/button.scss"
+import "taro-ui-vue/dist/style/components/toast.scss"
+import "taro-ui-vue/dist/style/components/noticebar.scss"
+import './index.scss' 
 export default {
-  name: 'Index',
-  components: {
-    NumberDisplay,
-    NumberSubmit
+    components: {
+    AtButton,
+    AtToast,
+    AtNoticebar
+  },
+  data () {
+    return {
+      msg: 'Hello world!',
+      show: false
+    }
   },
   methods: {
-    initData() {
-      console.log($('view'));
+    handleClick () {
+      this.show = true
+    },
+    handleClose () {
+      this.show = false
     }
-  }
-}
+  },
+    }
 </script>
-
-<style>
-.index {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

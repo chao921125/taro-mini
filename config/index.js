@@ -1,51 +1,32 @@
-const path = require("path");
-
 const config = {
-  projectName: 'mini-taro',
-  date: '2021-10-10',
-  // 设计稿尺寸
-  designWidth: 750, // 750(1)、 640(2.34 / 2,)、 828(1.81 / 2,)、 375(2 / 1,)
-  // 设计稿尺寸换算规则
+  projectName: 'taro-vue',
+  date: '2022-4-11',
+  designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
-    828: 1.81 / 2,
-    375: 2
+    828: 1.81 / 2
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  // Taro 插件配置
   plugins: [],
-  // 全局变量设置 // JSON.stringify('')
   defineConstants: {
   },
-  alias: {
-    '@/': path.resolve(__dirname, '..', 'src'),
-  },
-  // 文件 copy 配置
   copy: {
     patterns: [
     ],
     options: {
     }
   },
-  // 框架，react，nerv，vue, vue3 等
-  framework: 'vue3',
-  sass: {
-    resource: [
-      path.resolve(__dirname, '..', 'src/styles/variable.scss'),
-    ]
-  },
-  // 小程序端专用配置
+  framework: 'vue',
   mini: {
     postcss: {
       pxtransform: {
         enable: true,
         config: {
-          selectorBlackList: ['body']
+
         }
       },
-      // 小程序端样式引用本地资源内联配置
       url: {
         enable: true,
         config: {
@@ -59,23 +40,17 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    },
-    // 自定义 Webpack 配置
-    webpackChain (chain, webpack) {}
+    }
   },
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    // 经过这一配置之后，代码中引入的处于 `node_modules/taro-ui/` 路径下的样式文件均会经过 postcss 的编译处理。
+    esnextModules: ['nutui-taro'],
     postcss: {
       autoprefixer: {
         enable: true,
         config: {
-        }
-      },
-      pxtransform: {
-        enable: true,
-        config: {
-          selectorBlackList: ['body']
         }
       },
       cssModules: {

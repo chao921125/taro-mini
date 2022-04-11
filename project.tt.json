@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "mini-taro",
-  "description": "mini-taro",
+  "projectname": "taro-vue",
+  "description": "mini app",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,
