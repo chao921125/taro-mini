@@ -4,66 +4,15 @@ module.exports = {
   },
   defineConstants: {
   },
-  terser: {
-    enable: true,
-    config: {
-      compress: {
-        arrows: true,
-      },
-      module: false
-    }
-  },
-  csso: {
-    enable: true,
-    config: {
-      comments: false
-    }
-  },
-  mini: {
-    webpackChain(chain) {
-      chain.plugin('analyzer')
-        .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
-    }
-  },
+  mini: {},
   h5: {
-    styleLoaderOption: {
-      esModule: true,
-      insert: 'head'
-    },
-    enableExtract: true,
-    miniCssExtractPluginOption: {
-      filename: 'css/[name].css',
-      chunkFilename: 'css/[id].css'
-    },
-    imageUrlLoaderOption: {
-      limit: true,
-      encoding: true,
-      mimetype: 'image/png',
-      esModule: true
-    },
-    fontUrlLoaderOption: {
-      limit: true,
-      encoding: true,
-      mimetype: true,
-      esModule: true
-    },
-    webpackChain(chain) {
-      chain.plugin('analyzer')
-        .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
-
-      chain.merge({
-        mode: 'production',
-        optimization: {
-          usedExports: true,
-          minimize: true
-        }
-      })
-
-      chain.resolve.alias
-        .set(
-          '@tarojs/components$',
-          '@tarojs/components/dist-h5/vue3/index.js'
-        )
-    }
+    /**
+     * 如果h5端编译后体积过大，可以使用webpack-bundle-analyzer插件对打包体积进行分析。
+     * 参考代码如下：
+     * webpackChain (chain) {
+     *   chain.plugin('analyzer')
+     *     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
+     * }
+     */
   }
 }

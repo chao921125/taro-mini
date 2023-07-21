@@ -1,11 +1,13 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "taro-vue3",
-  "description": "taro mini app",
+  "projectname": "taro",
+  "description": "mini app h5",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,
     "es6": false,
+    "enhance": false,
+    "compileHotReLoad": false,
     "postcss": false,
     "minified": false
   },
