@@ -16,7 +16,7 @@ const config = {
 	// 项目产出目录
 	outputRoot: "dist",
 	// Taro 插件配置
-	plugins: ["@tarojs/plugin-html", "@tarojs/plugin-http"],
+	plugins: ["@tarojs/plugin-http"],
 	// 全局变量设置
 	defineConstants: {},
 	// 文件 copy 配置
