@@ -1,36 +1,36 @@
 const config = {
-  // 项目名称
+	// 项目名称
 	projectName: "taro",
-  // 项目创建日期
+	// 项目创建日期
 	date: "2020-12-21",
-  // 设计稿尺寸
+	// 设计稿尺寸
 	designWidth: 750,
-  // 设计稿尺寸换算规则
+	// 设计稿尺寸换算规则
 	deviceRatio: {
 		640: 2.34 / 2,
 		750: 1,
 		828: 1.81 / 2,
 	},
-  // 项目源码目录
+	// 项目源码目录
 	sourceRoot: "src",
-  // 项目产出目录
+	// 项目产出目录
 	outputRoot: "dist",
-  // Taro 插件配置
-	plugins: [],
-  // 全局变量设置
+	// Taro 插件配置
+	plugins: ["@tarojs/plugin-html", "@tarojs/plugin-http"],
+	// 全局变量设置
 	defineConstants: {},
-  // 文件 copy 配置
+	// 文件 copy 配置
 	copy: {
 		patterns: [],
 		options: {},
 	},
-  // 框架，react，nerv，vue, vue3 等
+	// 框架，react，nerv，vue, vue3 等
 	framework: "vue3",
 	compiler: "webpack5",
 	cache: {
 		enable: false, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
 	},
-  // 小程序端专用配置
+	// 小程序端专用配置
 	mini: {
 		webpackChain(chain) {
 			chain.merge({
@@ -52,9 +52,11 @@ const config = {
 		postcss: {
 			pxtransform: {
 				enable: true,
-				config: {},
+				config: {
+          selectorBlackList: [/van-/],
+        },
 			},
-      // 小程序端样式引用本地资源内联配置
+			// 小程序端样式引用本地资源内联配置
 			url: {
 				enable: true,
 				config: {
@@ -70,7 +72,7 @@ const config = {
 			},
 		},
 	},
-  // H5 端专用配置
+	// H5 端专用配置
 	h5: {
 		publicPath: "/",
 		staticDirectory: "static",
@@ -87,9 +89,9 @@ const config = {
 				},
 			},
 		},
-    // 自定义 Webpack 配置
-    webpackChain(chain, webpack) {},
-    devServer: {},
+		// 自定义 Webpack 配置
+		webpackChain(chain, webpack) {},
+		devServer: {},
 	},
 };
 

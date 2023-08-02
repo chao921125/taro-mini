@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "taro",
+  "projectname": "CC APP",
   "description": "mini app h5",
   "appid": "wxa52bb659b38d1ae2",
   "setting": {
@@ -11,5 +11,6 @@
     "postcss": false,
     "minified": false
   },
-  "compileType": "miniprogram"
+  "compileType": "miniprogram",
+  "libVersion": "latest"
 }
