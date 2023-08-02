@@ -2,7 +2,7 @@
   "miniprogramRoot": "./",
   "projectname": "taro",
   "description": "mini app h5",
-  "appid": "douyinid",
+  "appid": "qq",
   "setting": {
     "urlCheck": true,
     "es6": false,
