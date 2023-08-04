@@ -1,6 +1,5 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import VirtualList from "@tarojs/components/virtual-list";
 
 import "./assets/styles/index.scss";
 
@@ -9,7 +8,7 @@ const App = createApp({
 	mounted() {},
 	// 对应 onLaunch
 	onLaunch(options) {
-		console.log("onLaunch = ", options);
+		console.log("onLaunch = ", options, process.env.TARO_APP_API);
 	},
 	// 对应 onShow
 	onShow(options) {
@@ -32,6 +31,5 @@ const App = createApp({
 });
 
 App.use(createPinia());
-App.use(VirtualList);
 
 export default App;

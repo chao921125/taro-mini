@@ -1,6 +1,6 @@
 {
   "name": "taro",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "mini app h5",
   "templateInfo": {
@@ -52,6 +52,7 @@
     "@tarojs/taro": "3.6.11",
     "axios": "^1.4.0",
     "pinia": "^2.1.6",
+    "taro-ui": "^3.0.0-alpha.10",
     "vue": "^3.3.4"
   },
   "devDependencies": {

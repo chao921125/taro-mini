@@ -53,8 +53,8 @@ const config = {
 			pxtransform: {
 				enable: true,
 				config: {
-          selectorBlackList: [/van-/],
-        },
+					selectorBlackList: [/van-/],
+				},
 			},
 			// 小程序端样式引用本地资源内联配置
 			url: {
@@ -76,6 +76,7 @@ const config = {
 	h5: {
 		publicPath: "/",
 		staticDirectory: "static",
+		esnextModules: ["taro-ui"],
 		postcss: {
 			autoprefixer: {
 				enable: true,

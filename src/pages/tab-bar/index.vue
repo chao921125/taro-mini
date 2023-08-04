@@ -1,7 +1,7 @@
 <template>
 	<view class="index">
 		<Counter />
-		<button @click="toPage">click to me</button>
+		<button @tap="toPage()">click to me</button>
 	</view>
 </template>
 
@@ -13,13 +13,20 @@
 	const routerParams = Taro.getCurrentInstance();
 	console.log(routerParams);
 
-	function toPage() {
+	const toPage = () => {
+		console.log("click");
 		Taro.navigateTo({
-			url: "/pages/tab-bar/me",
+			url: "/pages/user/list",
+			success: (res) => {
+				console.log("success", res);
+			},
+			fail: (err) => {
+				console.log("fail", err);
+			},
 		});
 
 		// Taro.switchTab({
 		//   url: "/pages/tab-bar/me",
 		// });
-	}
+	};
 </script>

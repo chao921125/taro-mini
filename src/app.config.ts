@@ -1,5 +1,15 @@
 export default {
 	pages: ["pages/tab-bar/index", "pages/tab-bar/me"],
+	subPackages: [
+		{
+			root: "pages/user",
+			pages: ["list"],
+		},
+		{
+			root: "pages/order",
+			pages: ["list"],
+		},
+	],
 	tabBar: {
 		// tab 上的文字默认颜色，仅支持十六进制颜色
 		// color: "",
