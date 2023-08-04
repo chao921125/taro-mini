@@ -1,7 +1,7 @@
 <template>
 	<view class="index">
 		<Counter />
-		<button @tap="toPage()">click to me</button>
+		<button @tap="toPage()">to page user</button>
 	</view>
 </template>
 
