@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "CC APP",
-  "description": "mini app h5",
+  "projectname": "CC NET",
+  "description": "CC NET miniprogram and h5",
   "appid": "wxa52bb659b38d1ae2",
   "setting": {
     "urlCheck": true,
