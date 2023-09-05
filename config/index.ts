@@ -8,8 +8,11 @@ import prodConfig from "./prod";
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
 	const baseConfig: UserConfigExport = {
+    // 项目名称
 		projectName: process.env.TARO_APP_NAME,
+    // 项目创建日期
 		date: "2020-12-21",
+    // 设计稿尺寸
 		designWidth(input) {
 			// @ts-ignore
 			if (input?.file?.replace(/\\+/g, "/").indexOf("@nutui") > -1) {
@@ -17,20 +20,27 @@ export default defineConfig(async (merge, { command, mode }) => {
 			}
 			return 750;
 		},
+    // 设计稿尺寸换算规则
 		deviceRatio: {
 			640: 2.34 / 2,
 			750: 1,
 			828: 1.81 / 2,
 			375: 2,
 		},
+    // 项目源码目录
 		sourceRoot: "src",
+    // 项目产出目录
 		outputRoot: "dist",
+    // Taro 插件配置
 		plugins: ["@tarojs/plugin-html", "@tarojs/plugin-http"],
+    // 全局变量设置
 		defineConstants: {},
+    // 文件 copy 配置
 		copy: {
 			patterns: [],
 			options: {},
 		},
+    // 框架，react，nerv，vue, vue3 等
 		framework: "vue3",
 		compiler: {
 			type: "webpack5",
@@ -42,6 +52,7 @@ export default defineConfig(async (merge, { command, mode }) => {
 		cache: {
 			enable: true, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
 		},
+    // 小程序端专用配置
 		mini: {
 			postcss: {
 				pxtransform: {
@@ -88,6 +99,7 @@ export default defineConfig(async (merge, { command, mode }) => {
 				});
 			},
 		},
+    // H5 端专用配置
 		h5: {
 			publicPath: "/",
 			staticDirectory: "static",

@@ -1,8 +1,8 @@
 {
   "miniprogramRoot": "./dist",
   "projectname": "CC NET",
-  "description": "",
-  "appid": "touristappid",
+  "description": "CC NET miniprogram and h5",
+  "appid": "wxa52bb659b38d1ae2",
   "setting": {
     "urlCheck": true,
     "es6": false,
@@ -11,5 +11,6 @@
     "postcss": false,
     "minified": false
   },
-  "compileType": "miniprogram"
+  "compileType": "miniprogram",
+  "libVersion": "latest"
 }

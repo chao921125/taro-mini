@@ -9,6 +9,16 @@
 			<nut-button type="primary" @click="handleClick('text', msg2, true)">点我</nut-button>
 		</view>
 		<nut-toast :msg="msg2" v-model:visible="show" :type="type" :cover="cover" />
+    <nut-grid>
+      <nut-grid-item text="文字"><Dongdong /></nut-grid-item>
+      <nut-grid-item text="文字"><Dongdong /></nut-grid-item>
+      <nut-grid-item text="文字"><Dongdong /></nut-grid-item>
+      <nut-grid-item text="文字"><Dongdong /></nut-grid-item>
+      <nut-grid-item text="文字"><Dongdong /></nut-grid-item>
+      <nut-grid-item text="文字"><Dongdong /></nut-grid-item>
+      <nut-grid-item text="文字"><Dongdong /></nut-grid-item>
+      <nut-grid-item text="文字"><Dongdong /></nut-grid-item>
+    </nut-grid>
 	</view>
 </template>
 
