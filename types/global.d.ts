@@ -13,7 +13,7 @@ declare module "*.styl";
 
 // eslint-disable-next-line no-unused-vars
 declare namespace NodeJS {
-  // eslint-disable-next-line no-unused-vars
+	// eslint-disable-next-line no-unused-vars
 	interface ProcessEnv {
 		/** NODE 内置环境变量, 会影响到最终构建生成产物 */
 		NODE_ENV: "development" | "production";
