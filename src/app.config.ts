@@ -1,15 +1,15 @@
 export default defineAppConfig({
 	pages: ["pages/index/index"],
-	subPackages: [
-		{
-			root: "pages/user",
-			pages: ["list"],
-		},
-		{
-			root: "pages/order",
-			pages: ["list"],
-		},
-	],
+	// subPackages: [
+	// 	{
+	// 		root: "pages/user",
+	// 		pages: ["list"],
+	// 	},
+	// 	{
+	// 		root: "pages/order",
+	// 		pages: ["list"],
+	// 	},
+	// ],
 	// 建议tabbar自定义，因为其默认的会闪烁 TODO
 	// 创建一个tabbar页面，然后其余的页面为组件形式提供，如果需要特殊的跳转，那么就传入参数即可
 	// tabBar: {
