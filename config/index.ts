@@ -1,22 +1,31 @@
+import Components from "unplugin-vue-components/webpack";
+import NutUIResolver from "@nutui/nutui-taro/dist/resolver";
+
 const config = {
 	// 项目名称
 	projectName: "CC NET",
 	// 项目创建日期
 	date: "2020-12-21",
 	// 设计稿尺寸
-	designWidth: 750,
+	designWidth: (input) => {
+		if (input?.file?.replace(/\\+/g, "/").indexOf("@nutui") > -1) {
+			return 375;
+		}
+		return 750;
+	},
 	// 设计稿尺寸换算规则
 	deviceRatio: {
 		640: 2.34 / 2,
 		750: 1,
 		828: 1.81 / 2,
+		375: 2,
 	},
 	// 项目源码目录
 	sourceRoot: "src",
 	// 项目产出目录
 	outputRoot: "dist",
 	// Taro 插件配置
-	plugins: ["@tarojs/plugin-http"],
+	plugins: ["@tarojs/plugin-http", "@tarojs/plugin-html"],
 	// 全局变量设置
 	defineConstants: {},
 	// 文件 copy 配置
@@ -26,7 +35,13 @@ const config = {
 	},
 	// 框架，react，nerv，vue, vue3 等
 	framework: "vue3",
-	compiler: "webpack5",
+	compiler: {
+		type: "webpack5",
+		prebundle: { enable: false },
+	},
+	sass: {
+		data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
+	},
 	cache: {
 		enable: true, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
 		type: "filesystem",
@@ -49,6 +64,11 @@ const config = {
 					},
 				},
 			});
+			chain.plugin("unplugin-vue-components").use(
+				Components({
+					resolvers: [NutUIResolver({ taro: true })],
+				}),
+			);
 		},
 		postcss: {
 			autoprefixer: {
@@ -80,7 +100,7 @@ const config = {
 	h5: {
 		publicPath: "/",
 		staticDirectory: "static",
-		esnextModules: ["taro-ui"],
+		esnextModules: ["taro-ui", "nutui-taro", "icons-vue-taro"],
 		postcss: {
 			autoprefixer: {
 				enable: true,
@@ -95,7 +115,14 @@ const config = {
 			},
 		},
 		// 自定义 Webpack 配置
-		webpackChain(chain, webpack) {},
+		webpackChain(chain, webpack) {
+			console.log(webpack);
+			chain.plugin("unplugin-vue-components").use(
+				Components({
+					resolvers: [NutUIResolver({ taro: true })],
+				}),
+			);
+		},
 		devServer: {},
 	},
 };

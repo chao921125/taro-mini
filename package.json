@@ -44,10 +44,13 @@
   "author": "CC",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.22.11",
+    "@babel/runtime": "^7.22.15",
+    "@nutui/icons-vue-taro": "^0.0.9",
+    "@nutui/nutui-taro": "^4.1.4",
     "@tarojs/components": "3.6.15",
     "@tarojs/helper": "3.6.15",
     "@tarojs/plugin-framework-vue3": "3.6.15",
+    "@tarojs/plugin-html": "3.6.15",
     "@tarojs/plugin-http": "^3.6.15",
     "@tarojs/plugin-platform-alipay": "3.6.15",
     "@tarojs/plugin-platform-h5": "3.6.15",
@@ -65,15 +68,15 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.11",
+    "@babel/core": "^7.22.15",
     "@tarojs/cli": "3.6.15",
     "@tarojs/plugin-doctor": "^0.0.11",
     "@tarojs/taro-loader": "3.6.15",
     "@tarojs/webpack5-runner": "3.6.15",
     "@types/node": "^20.5.9",
     "@types/webpack-env": "^1.18.1",
-    "@typescript-eslint/eslint-plugin": "^6.5.0",
-    "@typescript-eslint/parser": "^6.5.0",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
     "@vue/babel-plugin-jsx": "^1.1.5",
     "@vue/compiler-sfc": "^3.3.4",
     "@vue/eslint-config-prettier": "^8.0.0",
@@ -92,7 +95,9 @@
     "stylelint": "15.10.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
+    "unplugin-vue-components": "^0.25.2",
     "vue-loader": "^17.2.2",
-    "webpack": "^5.88.2"
+    "webpack": "^5.88.2",
+    "workbox-webpack-plugin": "^7.0.0"
   }
 }
