@@ -7,7 +7,18 @@ module.exports = {
 			{
 				framework: "vue3",
 				ts: true,
+				"dynamic-import-node": true,
 			},
+		],
+	],
+	plugins: [
+		[
+			"import",
+			{
+				libraryName: "taro-hooks",
+				camel2DashComponentName: false,
+			},
+			"taro-hooks",
 		],
 	],
 };
