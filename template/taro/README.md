@@ -1,4 +1,4 @@
-# [taro 小程序为主 React / Vue](https://taro.jd.com/) 泰罗·奥特曼
+# [taro MiniAPP](https://taro.jd.com/)
 ## 目前3.x对VUE支持并不友好
 ```shell
 npx @tarojs/cli init myApp

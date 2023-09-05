@@ -6,8 +6,8 @@ import prodConfig from './prod'
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport = {
-    projectName: 'ui',
-    date: '2023-9-5',
+    projectName: 'CC NET',
+    date: '2020-12-21',
     designWidth: 750,
     deviceRatio: {
       640: 2.34 / 2,
@@ -54,7 +54,22 @@ export default defineConfig(async (merge, { command, mode }) => {
         }
       },
       webpackChain(chain) {
-        chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
+        chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin);
+        chain.merge({
+          module: {
+            rule: {
+              mjsScript: {
+                test: /\.mjs$/,
+                include: [/pinia/],
+                use: {
+                  babelLoader: {
+                    loader: require.resolve('babel-loader')
+                  }
+                }
+              }
+            }
+          }
+        });
       }
     },
     h5: {
@@ -83,7 +98,22 @@ export default defineConfig(async (merge, { command, mode }) => {
         }
       },
       webpackChain(chain) {
-        chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
+        chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin);
+        chain.merge({
+          module: {
+            rule: {
+              mjsScript: {
+                test: /\.mjs$/,
+                include: [/pinia/],
+                use: {
+                  babelLoader: {
+                    loader: require.resolve('babel-loader')
+                  }
+                }
+              }
+            }
+          }
+        });
       }
     },
     rn: {
