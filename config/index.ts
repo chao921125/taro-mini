@@ -1,5 +1,7 @@
 import { defineConfig, type UserConfigExport } from '@tarojs/cli'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
+import Components from 'unplugin-vue-components/webpack';
+import NutUIResolver from '@nutui/nutui-taro/dist/resolver';
 import devConfig from './dev'
 import prodConfig from './prod'
 
@@ -8,16 +10,22 @@ export default defineConfig(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport = {
     projectName: 'CC NET',
     date: '2020-12-21',
-    designWidth: 750,
+    designWidth (input) {
+      // @ts-ignore
+      if (input?.file?.replace(/\\+/g, '/').indexOf('@nutui') > -1) {
+        return 375
+      }
+      return 750
+    },
     deviceRatio: {
       640: 2.34 / 2,
       750: 1,
-      375: 2,
-      828: 1.81 / 2
+      828: 1.81 / 2,
+      375: 2
     },
     sourceRoot: 'src',
     outputRoot: 'dist',
-    plugins: [],
+    plugins: ['@tarojs/plugin-html'],
     defineConstants: {
     },
     copy: {
@@ -27,7 +35,13 @@ export default defineConfig(async (merge, { command, mode }) => {
       }
     },
     framework: 'vue3',
-    compiler: 'webpack5',
+    compiler: {
+      type: 'webpack5',
+      prebundle: { enable: false }
+    },
+    sass:{
+      data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
+    },
     cache: {
       enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
     },
@@ -36,7 +50,7 @@ export default defineConfig(async (merge, { command, mode }) => {
         pxtransform: {
           enable: true,
           config: {
-
+// selectorBlackList: ['nut-']
           }
         },
         url: {
@@ -54,6 +68,9 @@ export default defineConfig(async (merge, { command, mode }) => {
         }
       },
       webpackChain(chain) {
+        chain.plugin('unplugin-vue-components').use(Components({
+          resolvers: [NutUIResolver({taro: true})]
+        }));
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin);
         chain.merge({
           module: {
@@ -84,6 +101,7 @@ export default defineConfig(async (merge, { command, mode }) => {
         filename: 'css/[name].[hash].css',
         chunkFilename: 'css/[name].[chunkhash].css'
       },
+      esnextModules: ['nutui-taro', 'icons-vue-taro'],
       postcss: {
         autoprefixer: {
           enable: true,
@@ -98,6 +116,9 @@ export default defineConfig(async (merge, { command, mode }) => {
         }
       },
       webpackChain(chain) {
+        chain.plugin('unplugin-vue-components').use(Components({
+          resolvers: [NutUIResolver({taro: true})]
+        }));
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin);
         chain.merge({
           module: {
