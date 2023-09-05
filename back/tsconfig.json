@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es2022",
     "module": "commonjs",
     "removeComments": false,
     "preserveConstEnums": true,
@@ -20,11 +20,8 @@
     "resolveJsonModule": true,
     "typeRoots": [
       "node_modules/@types"
-    ],
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    ]
   },
-  "include": ["./src", "./types", "./config"],
+  "include": ["./src", "./types"],
   "compileOnSave": false
 }
