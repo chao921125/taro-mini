@@ -7,6 +7,7 @@ import prodConfig from "./prod";
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
+  console.log(command, mode);
 	const baseConfig: UserConfigExport = {
 		// 项目名称
 		projectName: process.env.TARO_APP_NAME,
