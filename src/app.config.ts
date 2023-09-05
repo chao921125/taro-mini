@@ -59,10 +59,7 @@ export default defineAppConfig({
 		"scope.userLocation": {
 			desc: "你的位置信息将用于小程序位置接口的效果展示",
 		},
-		"scope.werun": {
-			desc: "你的运动信息将用于小程序位置接口的效果展示",
-		},
 	},
 	// 后台定位
-	requiredBackgroundModes: ["audio", "location"],
+	requiredBackgroundModes: [],
 });
