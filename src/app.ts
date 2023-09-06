@@ -1,5 +1,9 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+import NutBig from "@nutui/nutui-bingo";
+import Taro from "@tarojs/taro";
+
+import "./assets/fonts/SF-Pro-Rounded-Bold.ttf";
 import "./assets/styles/index.scss";
 
 const App = createApp({
@@ -11,6 +15,7 @@ const App = createApp({
 	},
 	// 对应 onShow
 	onShow(options) {
+		Taro.pxTransform(10);
 		console.log("onShow = ", options);
 	},
 	// 对应 onHide
@@ -30,4 +35,5 @@ const App = createApp({
 });
 
 App.use(createPinia());
+App.use(NutBig);
 export default App;

@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts" name="">
+	import "./index.scss";
 	const props = defineProps({
 		name: {
 			required: false,
@@ -18,5 +19,3 @@
 		changeClick,
 	});
 </script>
-
-<style scoped lang="scss"></style>
