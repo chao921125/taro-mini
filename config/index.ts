@@ -7,10 +7,10 @@ import prodConfig from "./prod";
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
-  console.log(command, mode);
+  console.log(command, mode, process.env.TARO_APP_NAME);
 	const baseConfig: UserConfigExport = {
 		// 项目名称
-		projectName: process.env.TARO_APP_NAME,
+    projectName: "CC NET",
 		// 项目创建日期
 		date: "2020-12-21",
 		// 设计稿尺寸
