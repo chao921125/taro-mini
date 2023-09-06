@@ -1,4 +1,5 @@
 import { defineConfig, type UserConfigExport } from "@tarojs/cli";
+import * as path from "path";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import Components from "unplugin-vue-components/webpack";
 import NutUIResolver from "@nutui/nutui-taro/dist/resolver";
@@ -7,10 +8,10 @@ import prodConfig from "./prod";
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
-  console.log(command, mode, process.env.TARO_APP_NAME);
+	console.log(command, mode, process.env.TARO_APP_NAME);
 	const baseConfig: UserConfigExport = {
 		// 项目名称
-    projectName: "CC NET",
+		projectName: "CC NET",
 		// 项目创建日期
 		date: "2020-12-21",
 		// 设计稿尺寸
@@ -36,9 +37,20 @@ export default defineConfig(async (merge, { command, mode }) => {
 		plugins: ["@tarojs/plugin-html", "@tarojs/plugin-http"],
 		// 全局变量设置
 		defineConstants: {},
+		// 别名
+		alias: {
+			// "@": path.resolve(__dirname, '..', 'src'),
+			"@/components": path.resolve(__dirname, "..", "src/components"),
+		},
 		// 文件 copy 配置
 		copy: {
-			patterns: [],
+			patterns: [
+				{
+					from: "src/assets/fonts/",
+					to: "dist/assets/fonts/",
+					ignore: ["*.js"],
+				},
+			],
 			options: {},
 		},
 		// 框架，react，nerv，vue, vue3 等
@@ -48,11 +60,17 @@ export default defineConfig(async (merge, { command, mode }) => {
 			prebundle: { enable: false },
 		},
 		sass: {
-			data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
+			// data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
+			resource: ["src/assets/styles/variable.scss", "src/assets/styles/mixins.scss"],
+			projectDirectory: path.resolve(__dirname, ".."),
 		},
 		cache: {
 			enable: true, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
 		},
+    logger: {
+      quiet: false,
+      stats: false,
+    },
 		// 小程序端专用配置
 		mini: {
 			postcss: {
