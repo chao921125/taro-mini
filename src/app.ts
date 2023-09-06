@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import "./app.scss";
+import "./assets/styles/index.scss";
 
 const App = createApp({
 	// 可以使用所有的 Vue 生命周期方法

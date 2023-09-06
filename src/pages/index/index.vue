@@ -2,9 +2,10 @@
 	<view class="index">
 		<Counter />
 		<view>
+			{{ msg }}
 			<img src="" alt="" />
 		</view>
-		{{ msg }} <Dongdong />
+		<Dongdong />
 		<view class="btn">
 			<nut-button type="primary" @click="handleClick('text', msg2, true)">点我</nut-button>
 		</view>
@@ -25,7 +26,7 @@
 <script>
 	import "./index.scss";
 	import { reactive, toRefs } from "vue";
-	import Counter from "../../components/Counter.vue";
+	import Counter from "@/components/Counter.vue";
 	import { Dongdong } from "@nutui/icons-vue-taro";
 
 	export default {
