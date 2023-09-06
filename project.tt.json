@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "ui",
+  "projectname": "myApp",
   "appid": "testAppId",
   "setting": {
     "es6": false,

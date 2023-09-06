@@ -1,8 +1,8 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "CC NET",
-  "description": "CC NET miniprogram and h5",
-  "appid": "wxa52bb659b38d1ae2",
+  "projectname": "taro-mini",
+  "description": "",
+  "appid": "touristappid",
   "setting": {
     "urlCheck": true,
     "es6": false,
@@ -11,6 +11,5 @@
     "postcss": false,
     "minified": false
   },
-  "compileType": "miniprogram",
-  "libVersion": "latest"
+  "compileType": "miniprogram"
 }
