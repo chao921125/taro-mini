@@ -3,7 +3,6 @@ import { createPinia } from "pinia";
 import NutBig from "@nutui/nutui-bingo";
 import Taro from "@tarojs/taro";
 
-import "./assets/fonts/SF-Pro-Rounded-Bold.ttf";
 import "./assets/styles/index.scss";
 
 const App = createApp({

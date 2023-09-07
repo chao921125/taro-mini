@@ -1,7 +1,6 @@
 <template>
 	<image :src="logo" class="test-img"></image>
-	<view class="test-font">123123</view>
-	<nut-button>wowowo</nut-button>
+	<view class="test-font">文字<nut-button>按钮</nut-button></view>
 </template>
 
 <script setup lang="ts" name="">
