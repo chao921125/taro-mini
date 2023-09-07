@@ -5,6 +5,7 @@ import Components from "unplugin-vue-components/webpack";
 import NutUIResolver from "@nutui/nutui-taro/dist/resolver";
 import devConfig from "./dev";
 import prodConfig from "./prod";
+import * as process from "process";
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
@@ -32,14 +33,14 @@ export default defineConfig(async (merge, { command, mode }) => {
 		// 项目源码目录
 		sourceRoot: "src",
 		// 项目产出目录
-		outputRoot: "dist",
+		outputRoot: `dist/${process.env.TARO_ENV}`,
 		// Taro 插件配置
 		plugins: ["@tarojs/plugin-html", "@tarojs/plugin-http"],
 		// 全局变量设置
 		defineConstants: {},
 		// 别名
 		alias: {
-			// "@": path.resolve(__dirname, '..', 'src'),
+			"@": path.resolve(__dirname, "..", "src"),
 			"@/components": path.resolve(__dirname, "..", "src/components"),
 		},
 		// 文件 copy 配置
@@ -77,13 +78,22 @@ export default defineConfig(async (merge, { command, mode }) => {
 				pxtransform: {
 					enable: true,
 					config: {
-						// selectorBlackList: ['nut-']
+						onePxTransform: true,
+						unitPrecision: 5,
+						propList: ["*"],
+						selectorBlackList: ["nut-"],
+						replace: true,
+						mediaQuery: false,
+						minPixelValue: 0,
+						baseFontSize: 20,
+						maxRootSize: 40,
+						minRootSize: 20,
 					},
 				},
 				url: {
 					enable: true,
 					config: {
-						limit: 1024, // 设定转换尺寸上限
+						limit: 10240, // 设定转换尺寸上限
 					},
 				},
 				cssModules: {
@@ -131,11 +141,32 @@ export default defineConfig(async (merge, { command, mode }) => {
 				filename: "css/[name].[hash].css",
 				chunkFilename: "css/[name].[chunkhash].css",
 			},
-			esnextModules: ["nutui-taro", "icons-vue-taro"],
+			esnextModules: ["nutui-taro", "icons-vue-taro", "taro-ui"],
 			postcss: {
+				pxtransform: {
+					enable: true,
+					config: {
+						onePxTransform: true,
+						unitPrecision: 5,
+						propList: ["*"],
+						selectorBlackList: ["nut-"],
+						replace: true,
+						mediaQuery: false,
+						minPixelValue: 0,
+						baseFontSize: 20,
+						maxRootSize: 40,
+						minRootSize: 20,
+					},
+				},
 				autoprefixer: {
 					enable: true,
 					config: {},
+				},
+				url: {
+					enable: true,
+					config: {
+						limit: 10240, // 设定转换尺寸上限
+					},
 				},
 				cssModules: {
 					enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true

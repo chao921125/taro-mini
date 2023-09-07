@@ -9,8 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Counter: typeof import('./src/components/Counter.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
-    NutGrid: typeof import('@nutui/nutui-taro')['Grid']
-    NutGridItem: typeof import('@nutui/nutui-taro')['GridItem']
-    NutToast: typeof import('@nutui/nutui-taro')['Toast']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }

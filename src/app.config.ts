@@ -1,16 +1,29 @@
 export default defineAppConfig({
 	pages: ["pages/index/index"],
-	// subPackages: [
-	// 	{
-	// 		root: "pages/user",
-	// 		pages: ["list"],
-	// 	},
-	// 	{
-	// 		root: "pages/order",
-	// 		pages: ["list"],
-	// 	},
-	// ],
-	// 建议tabbar自定义，因为其默认的会闪烁 TODO
+	subPackages: [
+		{
+			root: "pages/user",
+			pages: ["list"],
+		},
+		{
+			root: "pages/order",
+			pages: ["list"],
+		},
+	],
+	// __APP__ root name
+	preloadRule: {
+		"pages/index/index": {
+			network: "all",
+			packages: ["__APP__"],
+		},
+	},
+	window: {
+		backgroundTextStyle: "light",
+		navigationBarBackgroundColor: "#fff",
+		navigationBarTitleText: "WeChat",
+		navigationBarTextStyle: "black",
+	},
+	// 建议tabbar自定义，因为其默认的会闪烁
 	// 创建一个tabbar页面，然后其余的页面为组件形式提供，如果需要特殊的跳转，那么就传入参数即可
 	// tabBar: {
 	//   // tab 上的文字默认颜色，仅支持十六进制颜色
@@ -43,12 +56,6 @@ export default defineAppConfig({
 	// },
 	// 非开发环境请关闭掉
 	debug: false,
-	window: {
-		backgroundTextStyle: "light",
-		navigationBarBackgroundColor: "#fff",
-		navigationBarTitleText: "WeChat",
-		navigationBarTextStyle: "black",
-	},
 	networkTimeout: {
 		request: 60000,
 		connectSocket: 60000,

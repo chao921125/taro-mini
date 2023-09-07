@@ -1,0 +1,193 @@
+// 顶部状态栏
+.nav-status {
+  height: var(--status-bar-height);
+  width: 100%;
+  background-color: #fff;
+}
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+// 布局
+.container {
+  padding: 10px 20px;
+}
+
+// wh
+.#{$prefix}-wh-full {
+  width: 100vw;
+  height: 100vh;
+}
+.#{$prefix}-wh-fill {
+  width: 100%;
+  height: 100%;
+}
+
+// 宽高
+.width-half {
+  width: 50%;
+}
+.body-contains {
+  width: calc(100% - 40px);
+  padding: 0 20px;
+}
+
+.bg-color-default {
+  background-color: $color-grey-light;
+}
+.bg-color-white {
+  background-color: $color-white;
+}
+.bg-color-dis {
+  background-color: blanchedalmond;
+}
+
+// 头像
+.avatar-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.avatar-circle-big {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+// 字体颜色
+.text-black {
+  color: $text-primary;
+}
+.text-white {
+  color: $text-default;
+}
+.text-default {
+  color: $text-success;
+}
+.text-success {
+  color: $text-success;
+}
+.text-link {
+  color: $text-link;
+}
+.text-error {
+  color: $text-error;
+}
+// 字体加粗
+.text-bold {
+  font-weight: bold;
+}
+// 标题
+.title-h1 {
+  font-size: 60px;
+  font-weight: bold;
+}
+.title-h2 {
+  font-size: 50px;
+  font-weight: bold;
+}
+.title-h3 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.title-sub-h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+.title-sub-h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+.title-sub-h3 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+// table
+.table-box {
+  padding: 10px 20px;
+}
+.table-tr {
+  padding: 25px 0;
+}
+.table-th {
+  font-size: 36px;
+  font-weight: bold;
+}
+.table-td {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+// 自定义表单
+.form-box {
+  margin: 30px 0;
+  .form-item {
+    margin-bottom: 30px;
+    display: flex;
+    display: -webkit-flex;
+  }
+  .form-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-right: 10px;
+  }
+  .form-label {
+    font-size: 36px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .form-value {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  .form-tips {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-right: 10px;
+  }
+}
+
+// 按钮
+.btn-text-mini {
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+.btn-default {
+  font-size: 24px;
+  color: #fff;
+}
+.btn-success {
+  background-color: $btn-success;
+  color: $text-default;
+}
+.btn-error {
+  background-color: $btn-error;
+  color: $text-default;
+}
+.btn-waring {
+  background-color: $btn-waring;
+  color: $text-default;
+}
+
+// 中横线
+.line-default {
+  width: 100%;
+  height: 1px;
+  background-color: $color-grey-light;
+}
+
+// modal 弹窗相关 start
+.modal-body {
+  width: 100%;
+  min-width: 500px;
+  min-height: 200px;
+}
+.modal-btn-box {
+  width: 100%;
+}
+// modal 弹窗相关 end

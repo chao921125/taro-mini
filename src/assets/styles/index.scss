@@ -1,1 +1,12 @@
+// ！！！ 禁止将以下两个css文件引入：variable.scss mixins.scss ！！！
+// 组件
 @import "~taro-ui/dist/style/index.scss";
+@import "@nutui/nutui-bingo/dist/style.css";
+// 字体图标
+//@import "@/assets/fonts/index.css";
+//@import "@/assets/icon-font/iconfont/iconfont.css";
+//@import "@/assets/icon-font/font-awesome/css/font-awesome.min.css";
+// 自定义
+@import "@/assets/styles/declare.scss";
+@import "@/assets/styles/public.scss";
+@import "@/assets/styles/reset.scss";
