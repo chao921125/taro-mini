@@ -3,7 +3,6 @@ import { createPinia } from "pinia";
 import NutBig from "@nutui/nutui-bingo";
 import Taro from "@tarojs/taro";
 
-import "./assets/fonts/SF-Pro-Rounded-Bold.ttf";
 import "./assets/styles/index.scss";
 
 const App = createApp({
@@ -32,6 +31,17 @@ const App = createApp({
 	},
 
 	// 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
+});
+
+Taro.loadFontFace({
+	family: "SF-Pro-Rounded-Bold",
+	source: 'url("https://github.com/chao921125/taro/raw/main/src/assets/fonts/SF-Pro-Rounded-Bold.ttf")',
+	success: console.log,
+});
+Taro.loadFontFace({
+	family: "SF-Pro-Rounded-Regular",
+	source: 'url("https://github.com/chao921125/taro/raw/main/src/assets/fonts/SF-Pro-Rounded-Regular.ttf")',
+	success: console.log,
 });
 
 App.use(createPinia());
