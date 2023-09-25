@@ -35,7 +35,7 @@ export default defineConfig(async (merge, { command, mode }) => {
 		// 项目产出目录
 		outputRoot: `dist/${process.env.TARO_ENV}`,
 		// Taro 插件配置
-		plugins: ["@tarojs/plugin-html", "@tarojs/plugin-http"],
+		plugins: ["@tarojs/plugin-sass", "@tarojs/plugin-html", "@tarojs/plugin-http"],
 		// 全局变量设置
 		defineConstants: {},
 		// 别名
@@ -62,7 +62,7 @@ export default defineConfig(async (merge, { command, mode }) => {
 		},
 		sass: {
 			// data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
-			resource: ["src/assets/styles/variable.scss", "src/assets/styles/mixins.scss"],
+			resource: ["src/assets/styles/mixins.scss"],
 			projectDirectory: path.resolve(__dirname, ".."),
 		},
 		cache: {

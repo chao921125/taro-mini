@@ -67,6 +67,7 @@
     "@tarojs/plugin-platform-swan": "^3.6.17",
     "@tarojs/plugin-platform-tt": "^3.6.17",
     "@tarojs/plugin-platform-weapp": "^3.6.17",
+    "@tarojs/plugin-sass": "^2.2.10",
     "@tarojs/runner-utils": "^3.6.17",
     "@tarojs/taro-loader": "^3.6.17",
     "@tarojs/test-utils-vue3": "^0.1.1",

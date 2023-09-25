@@ -1,8 +1,7 @@
-// ！！！ 禁止将以下两个css文件引入：variable.scss mixins.scss ！！！
-// 组件
 @use "sass:meta";
 @use "sass:math";
-
+// ！！！ 禁止将以下两个css文件引入：variable.scss mixins.scss ！！！
+// 组件
 @use "~taro-ui/dist/style/index.scss";
 @use "@nutui/nutui-bingo/dist/style.css";
 // 字体图标
