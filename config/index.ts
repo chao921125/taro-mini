@@ -62,7 +62,7 @@ export default defineConfig(async (merge, { command, mode }) => {
 		},
 		sass: {
 			// data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
-			resource: ["src/assets/styles/mixins.scss"],
+			resource: ["src/assets/styles/index.scss"],
 			projectDirectory: path.resolve(__dirname, ".."),
 		},
 		cache: {
