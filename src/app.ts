@@ -3,6 +3,8 @@ import { createPinia } from "pinia";
 import NutBig from "@nutui/nutui-bingo";
 import Taro from "@tarojs/taro";
 
+// 组件
+import "@nutui/nutui-bingo/dist/style.css";
 import "./assets/styles/index.scss";
 
 const App = createApp({
