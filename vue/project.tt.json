@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "myApp",
-  "description": "mini",
+  "projectname": "cc_net",
+  "description": "taro mini h5",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,

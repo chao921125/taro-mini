@@ -5,7 +5,7 @@
   "private": true,
   "description": "mini app h5",
   "license": "MIT",
-  "author": "",
+  "author": "cc_net",
   "scripts": {
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
