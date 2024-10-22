@@ -1,9 +1,13 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "cc_net",
-  "appid": "testAppId",
+  "projectname": "CC NET",
+  "description": "CC NET mini h5",
+  "appid": "touristappid",
   "setting": {
+    "urlCheck": true,
     "es6": false,
+    "postcss": false,
     "minified": false
-  }
+  },
+  "compileType": "miniprogram"
 }

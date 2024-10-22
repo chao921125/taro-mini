@@ -31,7 +31,6 @@ const App = createApp({
 	onUnhandledRejection(options) {
 		console.log("onUnhandledRejection = ", options);
 	},
-
 	// 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
 });
 
@@ -46,6 +45,7 @@ Taro.loadFontFace({
 	success: console.log,
 });
 
-App.use(createPinia());
 App.use(NutBig);
+App.use(createPinia());
+
 export default App;

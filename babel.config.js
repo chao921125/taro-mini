@@ -6,7 +6,8 @@ module.exports = {
 			"taro",
 			{
 				framework: "vue3",
-				ts: true,
+				ts: false,
+				compiler: "vite",
 			},
 		],
 	],

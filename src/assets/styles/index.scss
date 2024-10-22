@@ -8,6 +8,6 @@
 //@use "@/assets/icon-font/iconfont/iconfont.css";
 //@use "@/assets/icon-font/font-awesome/css/font-awesome.min.css";
 // 自定义
-@import "./declare.scss";
-@import "./public.scss";
-@import "./reset.scss";
+@use "./declare.scss";
+@use "./public.scss";
+@use "./reset.scss";

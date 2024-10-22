@@ -1,4 +1,4 @@
-export default defineAppConfig({
+export default {
 	pages: ["pages/index/index"],
 	subPackages: [
 		{
@@ -55,7 +55,7 @@ export default defineAppConfig({
 	//   custom: false,
 	// },
 	// 非开发环境请关闭掉
-	debug: false,
+	debug: true,
 	networkTimeout: {
 		request: 60000,
 		connectSocket: 60000,
@@ -69,4 +69,4 @@ export default defineAppConfig({
 	},
 	// 后台定位
 	requiredBackgroundModes: [],
-});
+};

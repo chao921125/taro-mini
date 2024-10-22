@@ -1,7 +1,3 @@
-<template>
-	<view @click="changeClick">template {{ props.name }}</view>
-</template>
-
 <script setup lang="ts" name="">
 	import "./index.scss";
 	const props = defineProps({
@@ -19,3 +15,7 @@
 		changeClick,
 	});
 </script>
+
+<template>
+  <view @click="changeClick">template {{ props.name }}</view>
+</template>

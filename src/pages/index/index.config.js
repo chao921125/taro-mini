@@ -19,6 +19,6 @@
  * usingComponents	Object	否	页面自定义组件配置
  * renderer	String	webview	渲染后端
  */
-export default definePageConfig({
+export default {
 	navigationBarTitleText: "首页",
-});
+};
