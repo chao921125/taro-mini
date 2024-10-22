@@ -54,8 +54,8 @@ export default {
 	//   // 自定义 tabBar
 	//   custom: false,
 	// },
-	// 非开发环境请关闭掉
-	debug: true,
+	// 请勿开启，否则会卡死
+	debug: false,
 	networkTimeout: {
 		request: 60000,
 		connectSocket: 60000,
