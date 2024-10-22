@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "myApp-ts",
+  "projectname": "taro-mini",
   "description": "mini",
   "appid": "touristappid",
   "setting": {

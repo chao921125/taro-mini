@@ -1,5 +1,5 @@
 {
-  "name": "myApp-rt",
+  "name": "taro-mini",
   "version": "1.0.0",
   "private": true,
   "description": "mini",
@@ -65,7 +65,7 @@
     "@tarojs/vite-runner": "4.0.6",
     "babel-preset-taro": "4.0.6",
     "eslint-config-taro": "4.0.6",
-    "eslint": "^8.12.0",
+    "eslint": "^9.13.0",
     "stylelint": "^14.4.0",
     "terser": "^5.16.8",
     "vite": "^4.2.0",

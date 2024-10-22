@@ -6,7 +6,7 @@ import prodConfig from './prod'
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
   const baseConfig = {
-    projectName: 'myApp-rt',
+    projectName: 'taro-mini',
     date: '2024-10-21',
     designWidth: 750,
     deviceRatio: {
