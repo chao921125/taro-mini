@@ -9,7 +9,7 @@ import Components from 'unplugin-vue-components/vite'
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig<'vite'>(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport<'vite'> = {
-    projectName: 'myApp-ts',
+    projectName: 'taro-mini',
     date: '2024-10-21',
     designWidth (input) {
       // 配置 NutUI 375 尺寸

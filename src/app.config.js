@@ -1,4 +1,4 @@
-export default defineAppConfig({
+export default {
 	pages: ["pages/index/index"],
 	subPackages: [
 		{
@@ -54,7 +54,7 @@ export default defineAppConfig({
 	//   // 自定义 tabBar
 	//   custom: false,
 	// },
-	// 非开发环境请关闭掉
+	// 请勿开启，否则会卡死
 	debug: false,
 	networkTimeout: {
 		request: 60000,
@@ -69,4 +69,4 @@ export default defineAppConfig({
 	},
 	// 后台定位
 	requiredBackgroundModes: [],
-});
+};

@@ -1,7 +1,3 @@
-<template>
-	<view id="target" />
-</template>
-
 <script setup>
 	import Taro, { useReady } from "@tarojs/taro";
 
@@ -16,3 +12,7 @@
 		});
 	});
 </script>
+
+<template>
+  <view id="target" />
+</template>

@@ -1,10 +1,3 @@
-<template>
-	<view>
-		<text class="title">{{ counter.count }}</text>
-		<view class="button" @tap="onAdd">ADD</view>
-	</view>
-</template>
-
 <script>
 	import { useCounterStore } from "../stores/counter";
 
@@ -30,7 +23,18 @@
 	};
 </script>
 
-<style>
+<template>
+	<view>
+		<text class="title">{{ counter.count }}</text>
+		<view
+			class="button"
+			@tap="onAdd"
+			>ADD</view
+		>
+	</view>
+</template>
+
+<style lang="scss">
 	.title {
 		font-size: 32px;
 	}

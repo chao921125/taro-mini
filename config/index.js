@@ -1,23 +1,18 @@
-import { defineConfig, type UserConfigExport } from "@tarojs/cli";
-import * as path from "path";
-import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
-import Components from "unplugin-vue-components/webpack";
-import NutUIResolver from "@nutui/nutui-taro/dist/resolver";
+import { defineConfig } from "@tarojs/cli";
+import * as path from "node:path";
 import devConfig from "./dev";
 import prodConfig from "./prod";
-import * as process from "process";
+import * as process from "node:process";
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
-	console.log(command, mode, process.env.TARO_APP_NAME);
-	const baseConfig: UserConfigExport = {
+	console.log("project settings = {}", command, mode, process.env.TARO_APP_NAME);
+	const baseConfig = {
 		// 项目名称
 		projectName: "CC NET",
-		// 项目创建日期
 		date: "2020-12-21",
 		// 设计稿尺寸
 		designWidth(input) {
-			// @ts-ignore
 			if (input?.file?.replace(/\\+/g, "/").indexOf("@nutui") > -1) {
 				return 375;
 			}
@@ -27,8 +22,8 @@ export default defineConfig(async (merge, { command, mode }) => {
 		deviceRatio: {
 			640: 2.34 / 2,
 			750: 1,
-			828: 1.81 / 2,
 			375: 2,
+			828: 1.81 / 2,
 		},
 		// 项目源码目录
 		sourceRoot: "src",
@@ -56,10 +51,7 @@ export default defineConfig(async (merge, { command, mode }) => {
 		},
 		// 框架，react，nerv，vue, vue3 等
 		framework: "vue3",
-		compiler: {
-			type: "webpack5",
-			prebundle: { enable: false },
-		},
+		compiler: "vite",
 		sass: {
 			// data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
 			resource: ["src/assets/styles/index.scss"],
@@ -97,38 +89,14 @@ export default defineConfig(async (merge, { command, mode }) => {
 					},
 				},
 				cssModules: {
-					enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
+					enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
 					config: {
 						namingPattern: "module", // 转换模式，取值为 global/module
 						generateScopedName: "[name]__[local]___[hash:base64:5]",
 					},
 				},
 			},
-			webpackChain(chain) {
-				chain.plugin("unplugin-vue-components").use(
-					Components({
-						resolvers: [NutUIResolver({ taro: true })],
-					}),
-				);
-				chain.resolve.plugin("tsconfig-paths").use(TsconfigPathsPlugin);
-				chain.merge({
-					module: {
-						rule: {
-							mjsScript: {
-								test: /\.mjs$/,
-								include: [/pinia/],
-								use: {
-									babelLoader: {
-										loader: require.resolve("babel-loader"),
-									},
-								},
-							},
-						},
-					},
-				});
-			},
 		},
-		// H5 端专用配置
 		h5: {
 			publicPath: "/",
 			staticDirectory: "static",
@@ -143,6 +111,10 @@ export default defineConfig(async (merge, { command, mode }) => {
 			},
 			esnextModules: ["nutui-taro", "icons-vue-taro", "taro-ui"],
 			postcss: {
+				autoprefixer: {
+					enable: true,
+					config: {},
+				},
 				pxtransform: {
 					enable: true,
 					config: {
@@ -158,10 +130,6 @@ export default defineConfig(async (merge, { command, mode }) => {
 						minRootSize: 20,
 					},
 				},
-				autoprefixer: {
-					enable: true,
-					config: {},
-				},
 				url: {
 					enable: true,
 					config: {
@@ -169,35 +137,12 @@ export default defineConfig(async (merge, { command, mode }) => {
 					},
 				},
 				cssModules: {
-					enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
+					enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
 					config: {
 						namingPattern: "module", // 转换模式，取值为 global/module
 						generateScopedName: "[name]__[local]___[hash:base64:5]",
 					},
 				},
-			},
-			webpackChain(chain) {
-				chain.plugin("unplugin-vue-components").use(
-					Components({
-						resolvers: [NutUIResolver({ taro: true })],
-					}),
-				);
-				chain.resolve.plugin("tsconfig-paths").use(TsconfigPathsPlugin);
-				chain.merge({
-					module: {
-						rule: {
-							mjsScript: {
-								test: /\.mjs$/,
-								include: [/pinia/],
-								use: {
-									babelLoader: {
-										loader: require.resolve("babel-loader"),
-									},
-								},
-							},
-						},
-					},
-				});
 			},
 		},
 		rn: {
