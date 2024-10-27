@@ -1,13 +1,9 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "taro-react",
-  "description": "mini app",
-  "appid": "touristappid",
+  "projectname": "taro-mini",
+  "appid": "testAppId",
   "setting": {
-    "urlCheck": true,
     "es6": false,
-    "postcss": false,
     "minified": false
-  },
-  "compileType": "miniprogram"
+  }
 }

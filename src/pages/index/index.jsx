@@ -1,48 +1,48 @@
-import React, { useCallback } from "react";
-import { View, Text, Button, Image } from "@tarojs/components";
-import { useEnv, useNavigationBar, useModal, useToast } from "taro-hooks";
-import logo from "./hook.png";
+import { Component } from 'react'
+import { connect } from 'react-redux'
+import { View, Button, Text } from '@tarojs/components'
+
+import { add, minus, asyncAdd } from '../../actions/counter'
 
 import './index.scss'
 
-const Index = () => {
-  const env = useEnv();
-  const [_, { setTitle }] = useNavigationBar({ title: "Taro Hooks" });
-  const [show] = useModal({
-    title: "Taro Hooks!",
-    showCancel: false,
-    confirmColor: "#8c2de9",
-    confirmText: "支持一下",
-    mask: true,
-  });
-  const [showToast] = useToast({ mask: true });
 
-  const handleModal = useCallback(() => {
-    show({ content: "不如给一个star⭐️!" }).then(() => {
-      showToast({ title: "点击了支持!" });
-    });
-  }, [show, showToast]);
+@connect(({ counter }) => ({
+  counter
+}), (dispatch) => ({
+  add () {
+    dispatch(add())
+  },
+  dec () {
+    dispatch(minus())
+  },
+  asyncAdd () {
+    dispatch(asyncAdd())
+  }
+}))
+class Index extends Component {
+  componentWillReceiveProps (nextProps) {
+    console.log(this.props, nextProps)
+  }
 
-  return (
-    <View className="wrapper">
-      <Image className="logo" src={logo} />
-      <Text className="title">为Taro而设计的Hooks Library</Text>
-      <Text className="desc">
-        目前覆盖70%官方API. 抹平部分API在H5端短板. 提供近40+Hooks!
-        并结合ahook适配Taro!
-      </Text>
-      <View className="list">
-        <Text className="label">运行环境</Text>
-        <Text className="note">{env}</Text>
+  componentWillUnmount () { }
+
+  componentDidShow () { }
+
+  componentDidHide () { }
+
+  render () {
+    return (
+      <View className='index'>
+        <Button className='add_btn' onClick={this.props.add}>+</Button>
+        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
+        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
+        <View><Text>{this.props.counter.num}</Text></View>
+        <View><Text>Hello, World</Text></View>
       </View>
-      <Button className="button" onClick={() => setTitle("Taro Hooks Nice!")}>
-        设置标题
-      </Button>
-      <Button className="button" onClick={handleModal}>
-        使用Modal
-      </Button>
-    </View>
-  );
-};
+    )
+  }
+}
 
-export default Index;
+export default Index
+
