@@ -29,8 +29,6 @@
     "lint:prettier": "prettier --write --fix --loglevel warn \"./**/*.{js,ts,json,jsx,tsx,css,less,scss,vue,html,md}\""
   },
   "browserslist": [
-    "defaults and fully supports es6-module",
-    "maintained node versions",
     "last 3 versions",
     "Android >= 4.1",
     "ios >= 8"
