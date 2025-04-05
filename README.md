@@ -1,4 +1,4 @@
-# [taro MiniAPP]([https://taro.jd.com/](https://docs.taro.zone/docs/))
+# [taro MiniAPP](https://docs.taro.zone/docs/)
 ###### 以下UI都集成进来了 [nutui 推荐](https://nutui.jd.com/#/) [taro-ui](https://taro-ui.jd.com/#/) [NutUI-Bingo 基于 NutUI 的抽奖组件库，助力营销活动和小游戏场景。](https://nutui.jd.com/bingo/index.html#/)
 ## 目前对VUE支持并不友好，无法完美适配SASS，配置相当复杂
 ```shell
