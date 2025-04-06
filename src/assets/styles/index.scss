@@ -1,13 +1,12 @@
-@use "sass:meta";
-@use "sass:math";
+//@use "sass:meta";
+//@use "sass:math";
 // ！！！ 禁止将以下两个css文件引入：variable.scss mixins.scss ！！！
 // 组件
-@use "@nutui/nutui-taro/dist/styles/variables.scss";
-@use "~taro-ui/dist/style/index.scss";
+//@use "@nutui/nutui-taro/dist/styles/variables.scss";
+//@use "~taro-ui/dist/style/index.scss";
 // 字体图标
 //@use "@/assets/icon-font/iconfont/iconfont.css";
 //@use "@/assets/icon-font/font-awesome/css/font-awesome.min.css";
 // 自定义
-@use "./declare.scss";
 @use "./public.scss";
 @use "./reset.scss";
