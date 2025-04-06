@@ -1,18 +1,19 @@
-import { defineConfig } from "@tarojs/cli";
-import * as path from "node:path";
+import { defineConfig, type UserConfigExport } from "@tarojs/cli";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import devConfig from "./dev";
 import prodConfig from "./prod";
-import * as process from "node:process";
+import NutUIResolver from "@nutui/auto-import-resolver";
+import Components from "unplugin-vue-components/vite";
+import process from "node:process";
+import path from "node:path";
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
-export default defineConfig(async (merge, { command, mode }) => {
-	console.log("project settings = {}", command, mode, process.env.TARO_APP_NAME);
-	const baseConfig = {
-		// 项目名称
+export default defineConfig<"vite">(async (merge, { command, mode }) => {
+	const baseConfig: UserConfigExport<"vite"> = {
 		projectName: "CC NET",
-		date: "2020-12-21",
+		date: "2020-12-31",
 		// 设计稿尺寸
-		designWidth(input) {
+		designWidth(input: any) {
 			if (input?.file?.replace(/\\+/g, "/").indexOf("@nutui") > -1) {
 				return 375;
 			}
@@ -30,7 +31,7 @@ export default defineConfig(async (merge, { command, mode }) => {
 		// 项目产出目录
 		outputRoot: `dist/${process.env.TARO_ENV}`,
 		// Taro 插件配置
-		plugins: ["@tarojs/plugin-html", "@tarojs/plugin-http"],
+		plugins: ["@taro-hooks/plugin-vue", "@tarojs/plugin-html", "@tarojs/plugin-http"],
 		// 全局变量设置
 		defineConstants: {},
 		// 别名
@@ -51,7 +52,14 @@ export default defineConfig(async (merge, { command, mode }) => {
 		},
 		// 框架，react，nerv，vue, vue3 等
 		framework: "vue3",
-		compiler: "vite",
+		compiler: {
+			type: "vite",
+			vitePlugins: [
+				Components({
+					resolvers: [NutUIResolver({ taro: true })],
+				}),
+			],
+		},
 		sass: {
 			// data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
 			resource: ["src/assets/styles/index.scss"],
@@ -101,8 +109,8 @@ export default defineConfig(async (merge, { command, mode }) => {
 			publicPath: "/",
 			staticDirectory: "static",
 			output: {
-				filename: "js/[name].[hash:8].js",
-				chunkFilename: "js/[name].[chunkhash:8].js",
+				// filename: "js/[name].[hash:8].js",
+				// chunkFilename: "js/[name].[chunkhash:8].js",
 			},
 			miniCssExtractPluginOption: {
 				ignoreOrder: true,
@@ -133,7 +141,7 @@ export default defineConfig(async (merge, { command, mode }) => {
 				url: {
 					enable: true,
 					config: {
-						limit: 10240, // 设定转换尺寸上限
+						// limit: 10240, // 设定转换尺寸上限
 					},
 				},
 				cssModules: {
@@ -146,7 +154,7 @@ export default defineConfig(async (merge, { command, mode }) => {
 			},
 		},
 		rn: {
-			appName: "taroDemo",
+			appName: "CC NET",
 			postcss: {
 				cssModules: {
 					enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
