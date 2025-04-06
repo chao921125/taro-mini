@@ -88,6 +88,8 @@
     "postcss-plugin-constparse": "^4.0.9",
     "postcss-pxtransform": "^4.0.9",
     "prettier": "^3.5.3",
+    "sass": "^1.86.3",
+    "sass-loader": "^16.0.5",
     "stylelint": "^16.18.0",
     "terser": "^5.39.0",
     "tsconfig-paths-webpack-plugin": "^4.2.0",
