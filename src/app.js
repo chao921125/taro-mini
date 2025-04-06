@@ -36,12 +36,12 @@ const App = createApp({
 
 Taro.loadFontFace({
 	family: "SF-Pro-Rounded-Bold",
-	source: 'url("https://github.com/chao921125/taro/raw/main/src/assets/fonts/SF-Pro-Rounded-Bold.ttf")',
+	source: 'url("/src/assets/fonts/SF-Pro-Rounded-Bold.ttf")',
 	success: console.log,
 });
 Taro.loadFontFace({
 	family: "SF-Pro-Rounded-Regular",
-	source: 'url("https://github.com/chao921125/taro/raw/main/src/assets/fonts/SF-Pro-Rounded-Regular.ttf")',
+	source: 'url("/src/assets/fonts/SF-Pro-Rounded-Regular.ttf")',
 	success: console.log,
 });
 
