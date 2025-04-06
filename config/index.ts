@@ -1,13 +1,14 @@
-import { defineConfig } from '@tarojs/cli'
-
+import { defineConfig, type UserConfigExport } from '@tarojs/cli'
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import devConfig from './dev'
 import prodConfig from './prod'
+import vitePluginImp from 'vite-plugin-imp'
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
-export default defineConfig(async (merge, { command, mode }) => {
-  const baseConfig = {
-    projectName: 'taro-mini',
-    date: '2024-10-21',
+export default defineConfig<'vite'>(async (merge, { command, mode }) => {
+  const baseConfig: UserConfigExport<'vite'> = {
+    projectName: 'taro-mini-r',
+    date: '2025-4-5',
     designWidth: 750,
     deviceRatio: {
       640: 2.34 / 2,
@@ -17,7 +18,10 @@ export default defineConfig(async (merge, { command, mode }) => {
     },
     sourceRoot: 'src',
     outputRoot: 'dist',
-    plugins: [],
+    plugins: [
+      '@taro-hooks/plugin-react',
+      '@tarojs/plugin-html'
+    ],
     defineConstants: {
     },
     copy: {
@@ -27,7 +31,21 @@ export default defineConfig(async (merge, { command, mode }) => {
       }
     },
     framework: 'react',
-    compiler: 'vite',
+    compiler: {
+      vitePlugins: [vitePluginImp({
+        libList: [
+          {
+            libName: '@nutui/nutui-react-taro',
+            style: (name) => {
+              return `@nutui/nutui-react-taro/dist/esm/${name}/style/css`
+            },
+            replaceOldImport: false,
+            camel2DashComponentName: false,
+          }
+        ]
+      })],
+      type: 'vite'
+    },
     mini: {
       postcss: {
         pxtransform: {
@@ -43,7 +61,7 @@ export default defineConfig(async (merge, { command, mode }) => {
             generateScopedName: '[name]__[local]___[hash:base64:5]'
           }
         }
-      }
+      },
     },
     h5: {
       publicPath: '/',
@@ -66,7 +84,7 @@ export default defineConfig(async (merge, { command, mode }) => {
             generateScopedName: '[name]__[local]___[hash:base64:5]'
           }
         }
-      }
+      },
     },
     rn: {
       appName: 'taroDemo',

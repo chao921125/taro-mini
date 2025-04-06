@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { Component, PropsWithChildren } from 'react'
 import { Provider } from 'react-redux'
 
 import configStore from './store'
@@ -7,7 +7,7 @@ import './app.scss'
 
 const store = configStore()
 
-class App extends Component {
+class App extends Component<PropsWithChildren> {
   componentDidMount () {}
 
   componentDidShow () {}
