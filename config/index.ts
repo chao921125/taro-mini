@@ -31,7 +31,7 @@ export default defineConfig<"vite">(async (merge, { command, mode }) => {
 		// 项目产出目录
 		outputRoot: `dist/${process.env.TARO_ENV}`,
 		// Taro 插件配置
-		plugins: ["@taro-hooks/plugin-vue", "@tarojs/plugin-html", "@tarojs/plugin-http"],
+		plugins: ["@taro-hooks/plugin-vue", "@tarojs/plugin-html", "@tarojs/plugin-http", "@tarojs/plugin-sass"],
 		// 全局变量设置
 		defineConstants: {},
 		// 别名
