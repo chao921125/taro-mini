@@ -1,6 +1,7 @@
 # [taro MiniAPP](https://docs.taro.zone/docs/)
 ###### 以下UI都集成进来了 [nutui 推荐](https://nutui.jd.com/#/) [taro-ui](https://taro-ui.jd.com/#/) [NutUI-Bingo 基于 NutUI 的抽奖组件库，助力营销活动和小游戏场景。](https://nutui.jd.com/bingo/index.html#/)
-## 目前对VUE支持并不友好，无法完美适配SASS，配置相当复杂
+## 内部 vite 迭代版本依旧在 4.x，目前最新 vite 构建为 7.x，谨慎选择
+## 新版本 scss 语法无法使用，依旧是内部版本的问题，这里大家做一个参考就行了
 ```shell
 npx @tarojs/cli init myApp
 ```
