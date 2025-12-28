@@ -12,6 +12,7 @@ const App = createApp({
 	mounted() {},
 	// 对应 onLaunch
 	onLaunch(options) {
+		// @ts-ignore
 		console.log("onLaunch = ", options, process.env.TARO_APP_API);
 	},
 	// 对应 onShow
